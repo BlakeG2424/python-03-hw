@@ -24,6 +24,8 @@ with open(budget_data_csv) as csvfile:
     net_total += int(first_row[1])
 # define variable for use in calculating net change between months
     previous_net = int(first_row[1])
+    total_months += 1
+    months.append(first_row[0])
 
 # read each row of data after the header
     for row in csv_reader: 
@@ -48,7 +50,7 @@ with open(budget_data_csv) as csvfile:
 # calculate average change (sum/len)
 
     sum_profit_loss = sum(profit_loss)
-    average_profit_loss = round(sum_profit_loss/(total_months), 2)
+    average_profit_loss = round(sum_profit_loss/(len(profit_loss)), 2)
 #print(average_profit_loss)
 
 #create string to hold 
